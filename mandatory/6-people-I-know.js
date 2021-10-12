@@ -390,8 +390,19 @@ let thirtyFiveOrOlder = [];
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 
 */
+function worksForPowerNet(friend) {
+  return friend.company === "POWERNET";
+}
 
-let powerNetEmails = [];
+function getEmail(friend) {
+  return friend.email;
+}
+
+// I have an array of friends [ friend1, friend2, friend3]
+// I want an array of emails [email1, email2, email3]
+
+let powerNetEmails = friends.filter(worksForPowerNet).map(getEmail);
+console.log(powerNetEmails);
 
 /*
 
@@ -427,8 +438,12 @@ let colleaguesWhoCanMultitask = [];
 */
 
 test("2 - friends that are over 35", () => {
-  expect(thirtyFiveOrOlder.map(({name}) => name.first)).toIncludeSameMembers([
-    "Vilma", "Aisha", "Mitchell", "Sutton", "Jana"
+  expect(thirtyFiveOrOlder.map(({ name }) => name.first)).toIncludeSameMembers([
+    "Vilma",
+    "Aisha",
+    "Mitchell",
+    "Sutton",
+    "Jana",
   ]);
 });
 
@@ -449,10 +464,10 @@ test("4 - friends with Stacie Villarreal as a colleague", () => {
 
 test("5 - colleagues who can multitask", () => {
   expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
-  "Rush May",
-  "Gena Good",
-  "Cunningham Shelton",
-  "Castro Castaneda",
-  "Luz Newton",
+    "Rush May",
+    "Gena Good",
+    "Cunningham Shelton",
+    "Castro Castaneda",
+    "Luz Newton",
   ]);
 });
