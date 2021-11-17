@@ -86,9 +86,17 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
-function logDeadWritersInTheirForties() {
+function logDeadWritersInTheirForties(deadWriter) {
   // write your code here
+
+  if (deadWriter.age >= 40 && deadWriter.age <= 49 && !deadWriter.alive) {
+    console.log(
+      `Writer ${deadWriter.firstName} ${deadWriter.lastName} died at ${deadWriter.age} years old`
+    );
+  }
 }
+
+let deadWriters = writers.filter(logDeadWritersInTheirForties);
 
 /*
 Exercise 3:
@@ -100,7 +108,26 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   // write your code here
+
+  for (let i = 0; i < writers.length; i++) {
+    if (
+      writers[i].age >= 40 &&
+      writers[i].age <= 49 &&
+      writers[i].alive == true
+    )
+      console.log(
+        " Hi my name is " +
+          writers[i].firstName +
+          " " +
+          writers[i].lastName +
+          " I am " +
+          writers[i].age +
+          " years old."
+      );
+  }
 }
+
+logAliveWritersInTheirForties(writers);
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`
