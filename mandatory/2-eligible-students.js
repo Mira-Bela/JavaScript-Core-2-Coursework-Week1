@@ -20,8 +20,18 @@
  */
 
 function eligibleStudents(attendances) {
-   
+  return attendances.filter(isEligible).map(getName);
 }
+
+function isEligible(student) {
+  return student.attendance >= 8;
+}
+
+function getName(student) {
+  return student.name;
+}
+
+let names = console.log(eligibleStudents(attendances));
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 2-eligible-students.js`
@@ -30,15 +40,19 @@ function eligibleStudents(attendances) {
 */
 
 const attendances = [
-    {name: "Ahmed", attendance: 8},
-    {name: "Clement", attendance: 10},
-    {name: "Elamin", attendance: 6},
-    {name: "Adam", attendance: 7},
-    {name: "Tayoa", attendance: 11},
-    {name: "Nina", attendance: 10},
+  { name: "Ahmed", attendance: 8 },
+  { name: "Clement", attendance: 10 },
+  { name: "Elamin", attendance: 6 },
+  { name: "Adam", attendance: 7 },
+  { name: "Tayoa", attendance: 11 },
+  { name: "Nina", attendance: 10 },
 ];
-  
+
 test("eligibleStudents function works", () => {
-    expect(eligibleStudents(attendances)).toEqual(["Ahmed", "Clement", "Tayoa", "Nina"]);
+  expect(eligibleStudents(attendances)).toEqual([
+    "Ahmed",
+    "Clement",
+    "Tayoa",
+    "Nina",
+  ]);
 });
- 
